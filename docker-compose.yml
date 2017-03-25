@@ -17,9 +17,12 @@ services:
   dicomreceiveingest:
     image: mayoqin/dicomreceiveingest
     ports:
-      - "9902:9901"    
+      - "9902:8832"
+      - "9906:5000"    
+
     expose:
       - "8832"
+      - "5000"  
     environment:
       ADVERTISED_HOST: dicomreceiveingest
       ADVERTISED_PORT: 8832
@@ -38,16 +41,15 @@ services:
     links:
       - tactic
  
-
   tactic:
     image: mayoqin/tactic
     ports:
-      - "10081:10080"    
+      - "9907:80"    
     expose:
-      - "10080"
+      - "80"
     environment:
       ADVERTISED_HOST: tactic
-      ADVERTISED_PORT: 10080
+      ADVERTISED_PORT: 80
       
   slicer:
     image: mayoqin/slicer
