@@ -1,0 +1,75 @@
+version: "3"
+
+services:
+  riipl:
+    image: mayoqin/riipl
+    ports:
+      - "9901:9901"    
+    expose:
+      - "9901"
+    environment:
+      ADVERTISED_HOST: riipl
+      ADVERTISED_PORT: 9901
+    links:
+      - tactic
+
+  
+  dicomreceiveingest:
+    image: mayoqin/dicomreceiveingest
+    ports:
+      - "9902:9901"    
+    expose:
+      - "8832"
+    environment:
+      ADVERTISED_HOST: dicomreceiveingest
+      ADVERTISED_PORT: 8832
+    links:
+      - tactic
+  
+  plastimatch:
+    image: mayoqin/plastimatch
+    ports:
+      - "9903:9901"    
+    expose:
+      - "9901"
+    environment:
+      ADVERTISED_HOST: plastimatch
+      ADVERTISED_PORT: 9901
+    links:
+      - tactic
+ 
+
+  tactic:
+    image: mayoqin/tactic
+    ports:
+      - "10081:10080"    
+    expose:
+      - "10080"
+    environment:
+      ADVERTISED_HOST: tactic
+      ADVERTISED_PORT: 10080
+      
+  slicer:
+    image: mayoqin/slicer
+    ports:
+      - "9904:9901"    
+    expose:
+      - "9901"
+    environment:
+      ADVERTISED_HOST: slicer
+      ADVERTISED_PORT: 9901
+    links:
+      - tactic
+
+  dcmqi:
+    image: mayoqin/dcmqi
+    ports:
+      - "9905:9901"    
+    expose:
+      - "9901"
+    environment:
+      ADVERTISED_HOST: dcmqi
+      ADVERTISED_PORT: 9901
+    links:
+      - tactic
+
