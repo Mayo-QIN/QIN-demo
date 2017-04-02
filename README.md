@@ -10,6 +10,28 @@ docker-compose up
 
 ## Tutorial
 
+To execute the tutorial follow the steps:
+
+
+Start up the infrastructure described in the yml file of docker compose. The services that have been implemented in this demo are:
+
+
+- Tactic (CMS)(port: 9907)
+- Dicom receiver (dcmtk)(port: 9902)
+- Slicer (port: 9904)
+- riipl (port: 9901)
+- dcmqi (port: 9905)
+- Python machine learning (port: 9908)
+
+### send data.
+
+
+We choose to use dcm4che (DCMTK although it was used as a receiver could not handle the DCO object)
+
+```
+./dcmsnd receiver@localhost:9902 {folder or file}
+```
+
 
 
 # Acknowledgement
