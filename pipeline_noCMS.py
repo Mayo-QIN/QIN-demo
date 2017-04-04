@@ -21,13 +21,12 @@
 
 import sys
 import os
-sys.path.append("/Users/m112447/Dropbox/GRUNT__PYTHON/")
+sys.path.append("/Users//Dropbox/GRUNT__PYTHON/")
 from pygrunt import grunt
 import uuid
 subdir = str(uuid.uuid4())
-
 # Create a folder for all the temporary stuff and remove at the end
-directory='/tmp/'+subdir+'/'
+directory='/Users//Downloads/'+subdir+'/'
 
 if not os.path.exists(directory):
     os.makedirs(directory)
@@ -43,20 +42,27 @@ g = grunt("http://0.0.0.0:9901")
 print (g.services)
 j=g.features
 j.output='output.zip'
-j.dicom='/Users/m112447/Downloads/Subjects/test.zip'
+j.dicom='/Users//Downloads/Subjects/test.zip'
 job =j()
 # Commands can be executed synchronously or asynchronously
 job.wait()
 job.save_output("output",directory)
+del j
 
+# Lets apply a classifier!
+directoryn=directory+'/nodule/'
+if not os.path.exists(directoryn):
+    os.makedirs(directoryn)
 
-# Lets get a predicion
-# g = grunt("http://0.0.0.0:9904")
-# j=g.CurvatureAnisotropicDiffusion
-#         j.inputVolume='/Users/m112447/Downloads/test.nii.gz'
-# j.outputVolume='output.nii.gz'
-# job =j()
-# job.wait()
-# job.save_output("outputVolume", "/Users/m112447/Downloads/")
-# simple_checkin ( self.__search_key__, context, filename,  is_current=True,mode='upload', create_icon=False, checkin_type='auto',file_type='nii.gz')
-#
+# So we need to have just the address of the grunt based docker... the responce we get back from the grunt service has anything we need.
+# Although this runs from my local comuter the dockers can be located everywhere enabling collaboration between different institutions
+print ('Example of responce')
+g = grunt("http://0.0.0.0:9908")
+print (g.services)
+j=g.noduleclassifier
+j.output='output.pdf'
+j.dataset=directory+'/output.zip'
+job =j()
+# Commands can be executed synchronously or asynchronously
+job.wait()
+job.save_output("output",directoryn)
