@@ -25,11 +25,11 @@ Start up the infrastructure described in the yml file of docker compose. The ser
 
 ### send data.
 
-
 We choose to use dcm4che (DCMTK although it was used as a receiver could not handle the DCO object)
 
 ```
 ./dcmsnd receiver@localhost:9902 {folder or file}
+
 ```
 
 
