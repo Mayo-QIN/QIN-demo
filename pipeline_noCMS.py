@@ -21,12 +21,12 @@
 
 import sys
 import os
-sys.path.append("/Users//Dropbox/GRUNT__PYTHON/")
+sys.path.append("/Users/Dropbox/GRUNT__PYTHON/")
 from pygrunt import grunt
 import uuid
 subdir = str(uuid.uuid4())
 # Create a folder for all the temporary stuff and remove at the end
-directory='/Users//Downloads/'+subdir+'/'
+directory='/Users/Downloads/'+subdir+'/'
 
 if not os.path.exists(directory):
     os.makedirs(directory)
@@ -42,7 +42,7 @@ g = grunt("http://0.0.0.0:9901")
 print (g.services)
 j=g.features
 j.output='output.zip'
-j.dicom='/Users//Downloads/Subjects/test.zip'
+j.dicom='/Users/Downloads/Subjects/test.zip'
 job =j()
 # Commands can be executed synchronously or asynchronously
 job.wait()
