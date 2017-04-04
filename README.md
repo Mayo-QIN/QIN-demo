@@ -38,8 +38,9 @@ Tactic has been preconfigured with the triggers used for the QIN demo.
 
 To access Tactic visit `0.0.0.0:9907`
 
-User: admin
-Password: admin
+> User: admin
+
+> Password: admin
 
 
 
