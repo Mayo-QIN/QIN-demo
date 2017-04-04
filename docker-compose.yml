@@ -5,7 +5,7 @@ services:
   pythonml:
     image: mayoqin/pythonml
     ports:
-      - "9907:9901"
+      - "9908:9901"
     expose:
       - "9901"
     environment:
@@ -55,7 +55,7 @@ services:
       - tactic
 
   tactic:
-    image: mayoqin/tactic
+    image: mayoqin/tactic:demo
     ports:
       - "9907:80"
     expose:
