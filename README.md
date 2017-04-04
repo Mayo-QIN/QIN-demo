@@ -32,6 +32,15 @@ We choose to use dcm4che (DCMTK although it was used as a receiver could not han
 
 ```
 
+### Tactic
+
+Tactic has been preconfigured with the triggers used for the QIN demo.
+
+To access Tactic visit `0.0.0.0:9907`
+
+User: admin
+Password: admin
+
 
 
 # Acknowledgement
