@@ -43,6 +43,10 @@ To access Tactic visit `0.0.0.0:9907`
 > Password: admin
 
 
+### Extra Information
+
+https://docs.google.com/presentation/d/1SBiw6VlwhgZorq9ahHbf4ZfTi_JvyZnz4oDjOJy0qN4/edit?usp=sharing
+
 
 # Acknowledgement
 Supported by the NCI Grant CA160045
